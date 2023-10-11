@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=Racing+Sans+One&display=swap');
+
+
+html{
+    background-color: white;
+}
+.container{
+    margin: 3rem;
+    
+}
+
+nav{ 
+    position: relative;
+    color: white;
+    background-color: red;
+    border-top: solid 10px red;
+    border-right: solid 10px red;
+    border-top-right-radius: 15px;
+}
+
+nav:after{
+    content: '';
+        position: absolute;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        border-top: 35px solid red;
+        border-left: 21px solid transparent;
+        left: 99.22%;
+        border-top-color: red;
+        border-bottom: 0;
+        overflow: hidden;
+}
+
+.tracks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    border: 2px, solid, white;
+}
+
+.f1-border--top-right {
+    border-top: solid 10px #e10600;
+    border-right: solid 10px #e10600;
+    border-top-right-radius: 15px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+@media (min-width: 768px){
+.f1-border--top-right {
+    border-top-right-radius: 25px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+}
+
+.f1-border-color--carbonBlack {
+    border-color: #15151e!important;
+}
+
+.border{
+    border-radius: 10px;
+}
+
+.track_info{
+    display: block;
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px;
+    height: 200px;
+    width:120px;
+    background-color: rgb(243, 243, 243);
+    padding: 10px;
+    text-align: center;
+    font-family: 'Racing Sans One', sans-serif;
+    word-spacing: .1rem;
+    letter-spacing: .01rem;
+    font-size: 1.1rem; 
+
+}
+
+.track_info:hover{
+    background-color: #f46a65;
+}
+
+.small-info{
+    font-family: 'Aleo', serif;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Racing Sans One', sans-serif;
+    word-spacing: .5rem;
+    letter-spacing: .1rem;
+    font-size: 5rem;
+}
+
+a.race-link {
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+
+  .track{
+    width: 900px;
+  }
+
+  .race_detail{
+    text-align: center;
+  }

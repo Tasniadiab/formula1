@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} 2023 Races {% endblock title %}
+{% block content %}
+<main>
+    
+        <h1> 2023 Races </h1>
+        <fieldset class="border">
+        <div class="tracks">
+            {% for track in all_tracks %}
+            <a href="{%url 'track_detail' track.id %}" class="race-link">
+                <div class="track_info">
+                    <h2>  {{track.name}} </h2>
+                    <div class="small-info"> {{track.location}}</div>
+                    <div class="small-info">{{track.date}}</div>
+                </div>
+            </a>
+            {% endfor %}
+    </div>
+</fieldset>
+</main>
+{% endblock content %}

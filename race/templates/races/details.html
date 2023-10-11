@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} {{track_details.name}} {% endblock title %}
+{% block content %}
+<main>
+    <div>
+        <h1> {{track_details.name}} </h1>
+        <div class="race_detail">
+        <div> {{track_details.location}}</div>
+        <div>{{track_details.date}}</div>
+        {% if track_details.has_passed == True %}
+        <div> Race has passed </div>
+        {% endif %}
+        <div class="race_detail">
+            <h2>Race Results:</h2>
+                {% for race in track_details.race_set.all %}
+                  
+                        <strong>Driver:</strong> {{ race.driver.name }}
+                        <strong>Grid Position:</strong> {{ race.grid }}<br>
+        
+                {% endfor %}
+            
+        </div>
+        <div> <img class="track" src = "{{track_details.url}}"> </div>
+        <div>{{track_details.comment}}</div>
+        </div>
+
+    </div>
+</main>
+{% endblock content %}
