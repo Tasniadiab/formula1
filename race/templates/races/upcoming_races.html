@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} 2023 Races {% endblock title %}
+{% block content %}
+<main>
+    
+        <h1> Upcoming Races </h1>
+        <div class="border">
+        <div class="tracks">
+            {% for race in upcoming_races %}
+            <a href="{%url 'track_detail' race.id %}" class="race-link">
+                <div class="track_info">
+                    <h2>  {{race.name}} </h2>
+                    <div class="small-info"> {{race.location}}</div>
+                    <div class="small-info">{{race.date}}</div>
+                </div>
+            </a>
+            {% endfor %}
+    </div>
+</div>
+</main>
+{% endblock content %}

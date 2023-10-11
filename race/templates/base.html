@@ -9,8 +9,12 @@
             Welcome to the Grid!
         </div>
         <nav>
-            <div>sjdhsd</div>
-            <div>skjhsd</div>
+            <div class="nav-links">
+                <div id="logo">F1 FAN</div>
+                <a class="link" href="{% url 'track_list' %}">2023 Race Schedule</a>
+                <a class="link" href="{% url 'upcoming_races' %}">Upcoming Races!</a>
+            </div>
+            <div class="nav-triangle"> </div>
         </nav>
         <title>
             {% block title %}

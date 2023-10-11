@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} List of Drivers {% endblock title %}
+{% block content %}
+<main>
+    <h1>List of Drivers</h1>
+    <div class="border">
+    <div class="race_detail">
+        {% regroup all_drivers by team as team_drivers %}
+        {% for team in team_drivers %}
+            <div class="team">
+                <h2>Team: {{ team.grouper }}</h2>
+                    {% for driver in team.list %}
+                        <div>
+                            <strong>Driver Name:</strong> {{ driver.name }}<br>
+                            <strong>Country:</strong> {{ driver.country }}
+                        </div>
+                    {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</main>
+{% endblock content %}

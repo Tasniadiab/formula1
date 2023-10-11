@@ -5,26 +5,56 @@
 <main>
     <div>
         <h1> {{track_details.name}} </h1>
+        {% if track_details.name == "Emilia Romagna Grand Prix" %}
         <div class="race_detail">
-        <div> {{track_details.location}}</div>
-        <div>{{track_details.date}}</div>
-        {% if track_details.has_passed == True %}
-        <div> Race has passed </div>
-        {% endif %}
+            This race has been postponed and cancelled
+        </div>
+        {% else %}
+        <div class="race_detail_border">
         <div class="race_detail">
-            <h2>Race Results:</h2>
-                {% for race in track_details.race_set.all %}
-                  
-                        <strong>Driver:</strong> {{ race.driver.name }}
-                        <strong>Grid Position:</strong> {{ race.grid }}<br>
-        
-                {% endfor %}
+            <div class="race_detail_1">
+                <div> Location: {{track_details.location}}</div>
+                <div>Date: {{track_details.date}}</div>
+                {% if track_details.has_passed == True %}
+                <div class="passed"> Race has passed </div>
+                {% endif %}
+            </div>
+                
+            <div class="race_detail_2">
+            <div class="race_results">
+                <h2>Race Results</h2>
+                <table class="results">
+                    <tr>
+                        <th>Position</th>
+                        <th>Driver</th>
+                    </tr>
+                    {% if not track_details.race_set.all %}
+                        </table>
+                        <div> No results are currently available</div>
+                    {% else %}
+                    {% for race in track_details.race_set.all %}
+                        <tr>
+                            {% if race.grid == 0 %}
+                            <td> DNF</td>
+                            {% else %}
+                            <td>{{ race.grid }}</td>
+                            {% endif %}
+                            
+                            <td>{{ race.driver.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+            </div>
             
+            <div id= "track-img"> 
+                <div><h2>Track</h2></div><br>
+            <img class="track" src = "{{track_details.url}}"> </div>
+            <div>{{track_details.comment}}</div>
         </div>
-        <div> <img class="track" src = "{{track_details.url}}"> </div>
-        <div>{{track_details.comment}}</div>
-        </div>
-
+    </div>
+</div>
+    {% endif %}
     </div>
 </main>
 {% endblock content %}

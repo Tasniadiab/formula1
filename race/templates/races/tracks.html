@@ -5,7 +5,7 @@
 <main>
     
         <h1> 2023 Races </h1>
-        <fieldset class="border">
+        <div class="border">
         <div class="tracks">
             {% for track in all_tracks %}
             <a href="{%url 'track_detail' track.id %}" class="race-link">
@@ -17,6 +17,6 @@
             </a>
             {% endfor %}
     </div>
-</fieldset>
+</div>
 </main>
 {% endblock content %}
